@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repostería Artesanal</title>
+    <!-- Fuentes elegantes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Encabezado Inmersivo (Hero Section) -->
+    <header class="hero-section">
+        <div class="hero-overlay">
+            <h1>Dulces Tradiciones</h1>
+            <p>Repostería artesanal elaborada con amor, dedicación y los mejores ingredientes.</p>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal del Menú -->
+    <main class="container">
+        <h2 class="section-title">Nuestras Especialidades</h2>
+        <nav id="categories-container" class="categories-nav">
+            <!-- Las categorías se inyectarán aquí con JS -->
+        </nav>
+        
+        <div id="products-container" class="products-grid">
+            <!-- Los productos se inyectarán aquí con JS -->
+        </div>
+    </main>
+
+    <!-- Botón Flotante -->
+    <button id="floating-cart-btn" class="floating-cart-btn" onclick="toggleCart()">
+        🛒 Ver Pedido <span id="cart-badge" class="badge">0</span>
+    </button>
+
+    <!-- Panel Lateral del Carrito (Sidebar) -->
+    <aside id="cart-sidebar" class="cart-sidebar closed">
+        <div class="cart-header">
+            <h2>Tu Encargo 🧁</h2>
+            <button onclick="toggleCart()" class="btn-close-sidebar">✖</button>
+        </div>
+        
+        <ul id="cart-items" class="cart-items-list">
+            <!-- Items del carrito -->
+        </ul>
+
+        <div class="cart-summary">
+            <div class="total-row">
+                <span>Total estimado:</span>
+                <span id="cart-total">$0</span>
+            </div>
+            
+            <form id="order-form" class="checkout-form">
+                <input type="text" id="customer-name" placeholder="Tu Nombre" required>
+                <input type="tel" id="customer-phone" placeholder="Tu Teléfono (ej: 569...)" required>
+                
+                <!-- Selector de Fecha Obligatorio -->
+                <label for="delivery-date" class="date-label">📅 Fecha de Entrega:</label>
+                <input type="date" id="delivery-date" required>
+                
+                <textarea id="order-notes" placeholder="Notas adicionales (Ej: Sin nueces)"></textarea>
+                <button type="submit" id="btn-submit-order" class="btn-primary" disabled>Agendar por WhatsApp</button>
+            </form>
+        </div>
+    </aside>
+    <!-- Modal de Personalización de Producto -->
+    <div id="product-options-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-box store-modal-box">
+            <h2 id="modal-product-name">Nombre Producto</h2>
+            <p id="modal-product-price" class="price" style="margin-bottom: 1.5rem;"></p>
+            
+            <div class="checkout-form" style="margin-top: 0; border-top: none; padding-top: 0;">
+                <label>Tamaño / Porciones (Opcional)</label>
+                <select id="modal-product-size" class="admin-select" style="margin-bottom: 1rem;">
+                    <option value="">Formato estándar</option>
+                    <option value="10 Personas">10 Personas</option>
+                    <option value="15 Personas">15 Personas</option>
+                    <option value="20 Personas">20 Personas</option>
+                    <option value="30 Personas">30 Personas</option>
+                </select>
+
+                <label>Dedicatoria (Opcional)</label>
+                <textarea id="modal-product-dedication" rows="2" placeholder="Ej: Feliz Cumpleaños Mamá"></textarea>
+
+                <div class="form-actions" style="margin-top: 1.5rem;">
+                    <button type="button" class="btn-secondary" onclick="closeOptionsModal()" style="width: 100%;">Cancelar</button>
+                    <button type="button" class="btn-primary" onclick="confirmAddToCart()" style="width: 100%;">Añadir al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
