@@ -1,7 +1,7 @@
 // ==========================================
 // CONFIGURACIÓN Y ESTADO GLOBAL
 // ==========================================
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = "https://reposteria-api.onrender.com";
 let cart = [];
 let allProducts = [];
 let currentSelectedProduct = null; // Guarda temporalmente la torta que se está personalizando

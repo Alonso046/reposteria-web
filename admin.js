@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = "https://reposteria-api.onrender.com";
 let productToDeleteId = null; 
 
 document.addEventListener("DOMContentLoaded", () => {
